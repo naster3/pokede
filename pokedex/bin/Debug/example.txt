@@ -1,0 +1,9 @@
+1,bulbasaur,9/15/2022 12:00:00 AM,12,System.Collections.Generic.HashSet`1[pokedex.orden],System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465
+2,ivysaur,9/15/2022 12:00:00 AM,12,System.Collections.Generic.HashSet`1[pokedex.orden],System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465
+3,venusaur,9/15/2022 12:00:00 AM,12,System.Collections.Generic.HashSet`1[pokedex.orden],System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465
+4,charmander,9/15/2022 12:00:00 AM,12,System.Collections.Generic.HashSet`1[pokedex.orden],System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465
+5,charmeleon,9/15/2022 12:00:00 AM,12,System.Collections.Generic.HashSet`1[pokedex.orden],System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465
+6,charizard,9/15/2022 12:00:00 AM,12,System.Collections.Generic.HashSet`1[pokedex.orden],System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465
+7,squirtle,9/15/2022 12:00:00 AM,12,System.Collections.Generic.HashSet`1[pokedex.orden],System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465
+8,wartortle,9/15/2022 12:00:00 AM,12,System.Collections.Generic.HashSet`1[pokedex.orden],System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465
+9,blastoise,9/15/2022 12:00:00 AM,12,System.Collections.Generic.HashSet`1[pokedex.orden],System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465

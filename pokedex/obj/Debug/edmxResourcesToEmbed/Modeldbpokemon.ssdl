@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbpokemonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="orden">
+    <Key>
+      <PropertyRef Name="ordenID" />
+    </Key>
+    <Property Name="ordenID" Type="int" Nullable="false" />
+    <Property Name="ordenNumero" Type="int" />
+    <Property Name="idtipo" Type="int" />
+    <Property Name="idPokemon" Type="int" />
+  </EntityType>
+  <EntityType Name="pokemon">
+    <Key>
+      <PropertyRef Name="idPokemon" />
+    </Key>
+    <Property Name="idPokemon" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="80" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="tipo" Type="int" />
+  </EntityType>
+  <EntityType Name="tipo">
+    <Key>
+      <PropertyRef Name="idtipo" />
+    </Key>
+    <Property Name="idtipo" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <Association Name="FK__orden__idPokemon__2A4B4B5E">
+    <End Role="pokemon" Type="Self.pokemon" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pokemon">
+        <PropertyRef Name="idPokemon" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="idPokemon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden__idtipo__29572725">
+    <End Role="tipo" Type="Self.tipo" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="idtipo" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="idtipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pokemon_IdTipo">
+    <End Role="tipo" Type="Self.tipo" Multiplicity="0..1" />
+    <End Role="pokemon" Type="Self.pokemon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="idtipo" />
+      </Principal>
+      <Dependent Role="pokemon">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="eliminarpokemones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarpokemones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nom" Type="nvarchar" Mode="In" />
+    <Parameter Name="fe" Type="datetime" Mode="In" />
+    <Parameter Name="ti" Type="int" Mode="In" />
+  </Function>
+  <Function Name="leerpokemones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="modificarpokemones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nom" Type="nvarchar" Mode="In" />
+    <Parameter Name="fe" Type="datetime" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="ti" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="dbpokemonModelStoreContainer">
+    <EntitySet Name="orden" EntityType="Self.orden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pokemon" EntityType="Self.pokemon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo" EntityType="Self.tipo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__orden__idPokemon__2A4B4B5E" Association="Self.FK__orden__idPokemon__2A4B4B5E">
+      <End Role="pokemon" EntitySet="pokemon" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden__idtipo__29572725" Association="Self.FK__orden__idtipo__29572725">
+      <End Role="tipo" EntitySet="tipo" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pokemon_IdTipo" Association="Self.FK_Pokemon_IdTipo">
+      <End Role="tipo" EntitySet="tipo" />
+      <End Role="pokemon" EntitySet="pokemon" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbpokemonModelStoreContainer" CdmEntityContainer="dbpokemonEntities2">
+    <EntitySetMapping Name="orden">
+      <EntityTypeMapping TypeName="dbpokemonModel.orden">
+        <MappingFragment StoreEntitySet="orden">
+          <ScalarProperty Name="ordenID" ColumnName="ordenID" />
+          <ScalarProperty Name="ordenNumero" ColumnName="ordenNumero" />
+          <ScalarProperty Name="idtipo" ColumnName="idtipo" />
+          <ScalarProperty Name="idPokemon" ColumnName="idPokemon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pokemon">
+      <EntityTypeMapping TypeName="dbpokemonModel.pokemon">
+        <MappingFragment StoreEntitySet="pokemon">
+          <ScalarProperty Name="idPokemon" ColumnName="idPokemon" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="path" ColumnName="path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo">
+      <EntityTypeMapping TypeName="dbpokemonModel.tipo">
+        <MappingFragment StoreEntitySet="tipo">
+          <ScalarProperty Name="idtipo" ColumnName="idtipo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="eliminarpokemones" FunctionName="dbpokemonModel.Store.eliminarpokemones" />
+    <FunctionImportMapping FunctionImportName="insertarpokemones" FunctionName="dbpokemonModel.Store.insertarpokemones" />
+    <FunctionImportMapping FunctionImportName="leerpokemones" FunctionName="dbpokemonModel.Store.leerpokemones">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbpokemonModel.leerpokemones_Result">
+          <ScalarProperty Name="idPokemon" ColumnName="idPokemon" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="path" ColumnName="path" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="modificarpokemones" FunctionName="dbpokemonModel.Store.modificarpokemones" />
+  </EntityContainerMapping>
+</Mapping>

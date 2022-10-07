@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbpokemonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="orden">
+    <Key>
+      <PropertyRef Name="ordenID" />
+    </Key>
+    <Property Name="ordenID" Type="Int32" Nullable="false" />
+    <Property Name="ordenNumero" Type="Int32" />
+    <Property Name="idtipo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="idPokemon" Type="Int32" />
+    <NavigationProperty Name="pokemon" Relationship="Self.FK__orden__idPokemon__2A4B4B5E" FromRole="orden" ToRole="pokemon" />
+    <NavigationProperty Name="tipo" Relationship="Self.FK__orden__idtipo__49C3F6B7" FromRole="orden" ToRole="tipo" />
+  </EntityType>
+  <EntityType Name="pokemon">
+    <Key>
+      <PropertyRef Name="idPokemon" />
+    </Key>
+    <Property Name="idPokemon" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="tipo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="orden" Relationship="Self.FK__orden__idPokemon__2A4B4B5E" FromRole="pokemon" ToRole="orden" />
+    <NavigationProperty Name="tipo1" Relationship="Self.FK_Pokemon_IdTipo" FromRole="pokemon" ToRole="tipo" />
+  </EntityType>
+  <EntityType Name="tipo">
+    <Key>
+      <PropertyRef Name="idtipo" />
+    </Key>
+    <Property Name="idtipo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="orden" Relationship="Self.FK__orden__idtipo__49C3F6B7" FromRole="tipo" ToRole="orden" />
+    <NavigationProperty Name="pokemon" Relationship="Self.FK_Pokemon_IdTipo" FromRole="tipo" ToRole="pokemon" />
+  </EntityType>
+  <Association Name="FK__orden__idPokemon__2A4B4B5E">
+    <End Role="pokemon" Type="Self.pokemon" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pokemon">
+        <PropertyRef Name="idPokemon" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="idPokemon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden__idtipo__49C3F6B7">
+    <End Role="tipo" Type="Self.tipo" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="idtipo" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="idtipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pokemon_IdTipo">
+    <End Role="tipo" Type="Self.tipo" Multiplicity="0..1" />
+    <End Role="pokemon" Type="Self.pokemon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="idtipo" />
+      </Principal>
+      <Dependent Role="pokemon">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbpokemonEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="orden" EntityType="Self.orden" />
+    <EntitySet Name="pokemon" EntityType="Self.pokemon" />
+    <EntitySet Name="tipo" EntityType="Self.tipo" />
+    <AssociationSet Name="FK__orden__idPokemon__2A4B4B5E" Association="Self.FK__orden__idPokemon__2A4B4B5E">
+      <End Role="pokemon" EntitySet="pokemon" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden__idtipo__49C3F6B7" Association="Self.FK__orden__idtipo__49C3F6B7">
+      <End Role="tipo" EntitySet="tipo" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pokemon_IdTipo" Association="Self.FK_Pokemon_IdTipo">
+      <End Role="tipo" EntitySet="tipo" />
+      <End Role="pokemon" EntitySet="pokemon" />
+    </AssociationSet>
+    <FunctionImport Name="eliminarpokemones">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarpokemones">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nom" Mode="In" Type="String" />
+      <Parameter Name="fe" Mode="In" Type="DateTime" />
+      <Parameter Name="ti" Mode="In" Type="String" />
+      <Parameter Name="pa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="leerpokemones" ReturnType="Collection(dbpokemonModel.leerpokemones_Result)" />
+    <FunctionImport Name="modificarpokemones">
+      <Parameter Name="nom" Mode="In" Type="String" />
+      <Parameter Name="fe" Mode="In" Type="DateTime" />
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="ti" Mode="In" Type="String" />
+      <Parameter Name="pa" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="leerpokemones_Result">
+    <Property Type="Int32" Name="idPokemon" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" Precision="23" />
+    <Property Type="String" Name="tipo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="path" Nullable="true" MaxLength="500" />
+  </ComplexType>
+</Schema>

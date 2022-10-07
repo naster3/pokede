@@ -1,0 +1,6 @@
+	1	|,
+	bulbasaur	|,
+	15/09/2022 12:00:00 a. m.	|,
+	12	|,
+	System.Collections.Generic.HashSet`1[pokedex.orden]	|,
+	System.Data.Entity.DynamicProxies.tipo_E5106395A44C491D3D8961E1DDC0BD4CE3B74C4E6DC093F85E2209D8CF7A1465	|
