@@ -11,4 +11,4 @@ es una app para aficionados fans  de pokemon, utiliza la api pokeapi.
 1.2.3
 ## base de datos:
 utilizara sql management para migrar el archivo
-`pe`
+`dbo.pokemon.sql`y sus los procedimiento almacenados`prueba1.sql`
