@@ -15,4 +15,4 @@ utilizara sql management para migrar el archivo
 
 ## creacion
 
-2 sep 2022 
+**2-sep-2022**
